@@ -1,0 +1,206 @@
+{
+  "communities": [
+    {
+      "id": "vka",
+      "name": "Vyrų Kalvės Akademija",
+      "loginCode": "vka123",
+      "logoPath": "/assets/vka.png",
+      "categories": [
+        {
+          "id": "mentoriai",
+          "name": "Mentoriai",
+          "contacts": [
+            {
+              "id": "1",
+              "firstName": "Jonas",
+              "lastName": "Jonaitis",
+              "phone": "+37060000000"
+            }
+          ]
+        },
+        {
+          "id": "vadovai",
+          "name": "Vadovai",
+          "contacts": [
+            {
+              "id": "v1",
+              "firstName": "Džiugas",
+              "lastName": "",
+              "phone": "+37061352885"
+            },
+            {
+              "id": "v2",
+              "firstName": "Leonardas",
+              "lastName": "",
+              "phone": "+37069947794"
+            },
+            {
+              "id": "v3",
+              "firstName": "Svajūnas",
+              "lastName": "",
+              "phone": "+37067778995"
+            }
+          ]
+        },
+        {
+          "id": "nariai",
+          "name": "Nariai",
+          "contacts": [
+            {
+              "id": "2",
+              "firstName": "Kirilas",
+              "lastName": "",
+              "phone": "+37063148876"
+            },
+            {
+              "id": "3",
+              "firstName": "Vytaras",
+              "lastName": "",
+              "phone": "+37066968771"
+            },
+            {
+              "id": "4",
+              "firstName": "Gintaras",
+              "lastName": "",
+              "phone": "+37061016133"
+            },
+            {
+              "id": "5",
+              "firstName": "Kasparas",
+              "lastName": "",
+              "phone": "+37062029279"
+            },
+            {
+              "id": "6",
+              "firstName": "Simonas",
+              "lastName": "",
+              "phone": "+37064516003"
+            },
+            {
+              "id": "7",
+              "firstName": "Domantas",
+              "lastName": "",
+              "phone": "+37062572675"
+            },
+            {
+              "id": "8",
+              "firstName": "Aretas",
+              "lastName": "",
+              "phone": "+37062625257"
+            },
+            {
+              "id": "9",
+              "firstName": "Artis",
+              "lastName": "",
+              "phone": "+37067669858"
+            },
+            {
+              "id": "10",
+              "firstName": "Adas",
+              "lastName": "",
+              "phone": "+37061889190"
+            },
+            {
+              "id": "11",
+              "firstName": "Oskaras",
+              "lastName": "",
+              "phone": "+37060758259"
+            },
+            {
+              "id": "12",
+              "firstName": "Rokas",
+              "lastName": "",
+              "phone": "+37061319108"
+            },
+            {
+              "id": "13",
+              "firstName": "Faustas",
+              "lastName": "",
+              "phone": "+37064047688"
+            },
+            {
+              "id": "14",
+              "firstName": "Žygimantas",
+              "lastName": "",
+              "phone": "+37067697148"
+            },
+            {
+              "id": "15",
+              "firstName": "Aldas",
+              "lastName": "",
+              "phone": "+37061658471"
+            },
+            {
+              "id": "16",
+              "firstName": "Ignas",
+              "lastName": "",
+              "phone": "+37060370770"
+            },
+            {
+              "id": "17",
+              "firstName": "Viktoras",
+              "lastName": "",
+              "phone": "+37068489731"
+            },
+            {
+              "id": "18",
+              "firstName": "Sovijus",
+              "lastName": "",
+              "phone": "+37068559843"
+            },
+            {
+              "id": "19",
+              "firstName": "Dominykas",
+              "lastName": "",
+              "phone": "+37061286509"
+            },
+            {
+              "id": "20",
+              "firstName": "Ernestas",
+              "lastName": "",
+              "phone": "+37068277282"
+            },
+            {
+              "id": "21",
+              "firstName": "Audrius",
+              "lastName": "",
+              "phone": "+37061603220"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "umma",
+      "name": "Umma",
+      "loginCode": "umma123",
+      "logoPath": "/assets/umma.png",
+      "categories": [
+        {
+          "id": "mentoriai",
+          "name": "Mentoriai",
+          "contacts": [
+            {
+              "id": "u1",
+              "firstName": "Petras",
+              "lastName": "Petrauskas",
+              "phone": "+37061111111"
+            }
+          ]
+        },
+        {
+          "id": "nariai",
+          "name": "Nariai",
+          "contacts": [
+            {
+              "id": "u2",
+              "firstName": "Antanas",
+              "lastName": "Antanaitis",
+              "phone": "+37062222222"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+} 
