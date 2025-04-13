@@ -1,10 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const ContactCard = ({ contact, categoryName }) => {
   const [copySuccess, setCopySuccess] = useState(false);
   const [copyAnimation, setCopyAnimation] = useState(false);
+  const [allTags, setAllTags] = useState([]);
   
   const { firstName, lastName, phone, role } = contact;
+  
+  // Sudarome visus žymenis
+  useEffect(() => {
+    const tags = [];
+    
+    // Pridedame kategorijos žymenį
+    if (categoryName) {
+      const label = categoryName.replace(' grupė', '');
+      const color = getGroupColor(categoryName);
+      tags.push({ label, color });
+    }
+    
+    // Pridedame rolės žymenį, jei yra
+    if (role) {
+      tags.push({ label: role, color: 'bg-indigo-100 text-indigo-800' });
+    }
+    
+    setAllTags(tags);
+  }, [categoryName, role]);
   
   // Formatuojame telefono numerį, kad būtų gražesnis
   const formattedPhone = phone.replace(/^(\+370)/, '+370 ');
@@ -35,12 +55,6 @@ const ContactCard = ({ contact, categoryName }) => {
     window.location.href = `tel:${phone}`;
   };
   
-  // Pakeičiame grupės pavadinimą į pavadinimą be žodžio "grupė"
-  const getGroupLabel = (name) => {
-    if (!name) return '';
-    return name.replace(' grupė', '');
-  };
-  
   // Grąžiname skirtingą spalvą pagal grupės pavadinimą
   const getGroupColor = (name) => {
     if (!name) return 'bg-gray-100 text-gray-700';
@@ -55,8 +69,8 @@ const ContactCard = ({ contact, categoryName }) => {
     return 'bg-gray-100 text-gray-700';
   };
   
-  // For debugging: remove this in production
-  console.log('Rendering ContactCard with categoryName:', categoryName, 'role:', role);
+  // For debugging
+  console.log('Kontaktas:', firstName, 'Kategorija:', categoryName, 'Rolė:', role);
   
   return (
     <div className="card hover:shadow-medium transition-shadow">
@@ -66,16 +80,15 @@ const ContactCard = ({ contact, categoryName }) => {
             <h3 className="font-semibold text-lg text-harbor">
               {firstName} {lastName}
             </h3>
-            {categoryName && (
-              <span className={`ml-2 px-2 py-0.5 text-xs rounded-full ${getGroupColor(categoryName)}`}>
-                {getGroupLabel(categoryName)}
+            
+            {allTags.map((tag, index) => (
+              <span 
+                key={index} 
+                className={`ml-2 px-2 py-0.5 text-xs rounded-full ${tag.color}`}
+              >
+                {tag.label}
               </span>
-            )}
-            {role && (
-              <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-indigo-100 text-indigo-800">
-                {role}
-              </span>
-            )}
+            ))}
           </div>
           <p className="text-gray-600 mt-1">{formattedPhone}</p>
         </div>
