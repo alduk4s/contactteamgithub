@@ -36,9 +36,8 @@ const LoginPage = () => {
           <img 
             src="/ContactTeam.png" 
             alt="ContactTeam logotipas" 
-            className="w-32 h-32 mx-auto mb-4"
+            className="w-48 h-48 mx-auto mb-8"
           />
-          <h1 className="text-4xl font-bold text-harbor">ContactTeam</h1>
         </div>
         
         <div className="bg-white rounded-xl shadow-medium p-6 md:p-8">
