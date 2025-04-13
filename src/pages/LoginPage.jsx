@@ -31,16 +31,16 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-skyblue to-white p-4">
-      <div className="container-narrow animate-fade-in">
+      <div className="container-narrow animate-fade-in flex flex-col items-center w-full">
         <div className="text-center mb-16">
           <img 
             src="/ContactTeam.png" 
             alt="ContactTeam logotipas" 
-            className="w-48 h-48 mx-auto"
+            className="w-64 h-64 mx-auto"
           />
         </div>
         
-        <div className="bg-white rounded-xl shadow-medium p-6 md:p-8 max-w-md mx-auto">
+        <div className="bg-white rounded-xl shadow-medium p-6 md:p-8 max-w-md w-full">
           <h2 className="text-xl font-semibold text-harbor text-center mb-8">Įveskite bendruomenės kodą</h2>
           
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -62,7 +62,7 @@ const LoginPage = () => {
             </div>
             
             {error && (
-              <div className="text-red-500 text-sm py-1">{error}</div>
+              <div className="text-red-500 text-sm py-1 text-center">{error}</div>
             )}
             
             <button
