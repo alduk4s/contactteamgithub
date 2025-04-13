@@ -12,6 +12,7 @@ const ContactListPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredCategories, setFilteredCategories] = useState([]);
   const [activeTab, setActiveTab] = useState('all');
+  const [sortOrder, setSortOrder] = useState('asc'); // 'asc' arba 'desc'
   
   useEffect(() => {
     // Ieškome bendruomenės pagal ID
@@ -21,15 +22,15 @@ const ContactListPage = () => {
     
     if (foundCommunity) {
       setCommunity(foundCommunity);
-      filterContacts(foundCommunity, searchQuery, activeTab);
+      filterContacts(foundCommunity, searchQuery, activeTab, sortOrder);
     } else {
       // Jei bendruomenė nerasta, grįžtame į prisijungimo puslapį
       navigate('/');
     }
   }, [communityId, navigate]);
   
-  // Filtruojame kontaktus pagal paiešką ir aktyvų tab'ą
-  const filterContacts = (comm, query, tab) => {
+  // Filtruojame ir rūšiuojame kontaktus
+  const filterContacts = (comm, query, tab, order) => {
     if (!comm) return;
     
     const lowercaseQuery = query.toLowerCase();
@@ -46,11 +47,23 @@ const ContactListPage = () => {
         }
         
         // Filtruojame kontaktus pagal paiešką
-        const filteredContacts = category.contacts.filter(contact => 
+        let filteredContacts = category.contacts.filter(contact => 
           contact.firstName.toLowerCase().includes(lowercaseQuery) ||
           contact.lastName.toLowerCase().includes(lowercaseQuery) ||
           contact.phone.includes(lowercaseQuery)
         );
+        
+        // Rūšiuojame kontaktus pagal abėcėlę
+        filteredContacts = filteredContacts.sort((a, b) => {
+          const nameA = `${a.firstName} ${a.lastName}`.toLowerCase();
+          const nameB = `${b.firstName} ${b.lastName}`.toLowerCase();
+          
+          if (order === 'asc') {
+            return nameA.localeCompare(nameB, 'lt');
+          } else {
+            return nameB.localeCompare(nameA, 'lt');
+          }
+        });
         
         return {
           ...category,
@@ -62,10 +75,10 @@ const ContactListPage = () => {
     setFilteredCategories(filtered);
   };
   
-  // Atnaujinama paieška
+  // Atnaujinama paieška ir rūšiavimas
   useEffect(() => {
-    filterContacts(community, searchQuery, activeTab);
-  }, [searchQuery, activeTab, community]);
+    filterContacts(community, searchQuery, activeTab, sortOrder);
+  }, [searchQuery, activeTab, sortOrder, community]);
   
   const handleTabChange = (tabId) => {
     setActiveTab(tabId);
@@ -73,6 +86,10 @@ const ContactListPage = () => {
   
   const handleLogout = () => {
     navigate('/');
+  };
+  
+  const toggleSortOrder = () => {
+    setSortOrder(prevOrder => prevOrder === 'asc' ? 'desc' : 'asc');
   };
   
   if (!community) {
@@ -105,17 +122,39 @@ const ContactListPage = () => {
       </header>
       
       <main className="container-wide py-6">
-        <div className="mb-6">
-          <SearchBar
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-          />
+        <div className="mb-6 flex flex-col sm:flex-row gap-3 items-center">
+          <div className="flex-grow w-full">
+            <SearchBar
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+            />
+          </div>
+          <button
+            onClick={toggleSortOrder}
+            className="flex items-center px-4 py-2.5 bg-white rounded-lg border border-gray-200 hover:bg-gray-50 text-sm font-medium text-gray-700"
+            aria-label="Rūšiavimo tvarka"
+          >
+            <svg 
+              className={`w-5 h-5 mr-2 transition-transform ${sortOrder === 'desc' ? 'rotate-180' : ''}`} 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth="2" 
+                d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"
+              />
+            </svg>
+            {sortOrder === 'asc' ? 'A-Ž' : 'Ž-A'}
+          </button>
         </div>
         
         <div className="mb-6 border-b border-gray-200">
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 overflow-x-auto pb-1">
             <button
-              className={`pb-2 px-1 ${
+              className={`pb-2 px-1 whitespace-nowrap ${
                 activeTab === 'all'
                   ? 'text-teal border-b-2 border-teal font-medium'
                   : 'text-gray-500 hover:text-gray-700'
@@ -128,7 +167,7 @@ const ContactListPage = () => {
             {community.categories.map((category) => (
               <button
                 key={category.id}
-                className={`pb-2 px-1 ${
+                className={`pb-2 px-1 whitespace-nowrap ${
                   activeTab === category.id
                     ? 'text-teal border-b-2 border-teal font-medium'
                     : 'text-gray-500 hover:text-gray-700'
