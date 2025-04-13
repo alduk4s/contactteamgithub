@@ -50,19 +50,22 @@
               "id": "v1e",
               "firstName": "Džiugas",
               "lastName": "",
-              "phone": "+37061352885"
+              "phone": "+37061352885",
+              "role": "Vadovas"
             },
             {
               "id": "v2e",
               "firstName": "Leonardas",
               "lastName": "",
-              "phone": "+37069947794"
+              "phone": "+37069947794",
+              "role": "Vadovas"
             },
             {
               "id": "v3e",
               "firstName": "Svajūnas",
               "lastName": "",
-              "phone": "+37067778995"
+              "phone": "+37067778995",
+              "role": "Vadovas"
             },
             {
               "id": "2",

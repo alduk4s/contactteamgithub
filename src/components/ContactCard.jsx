@@ -4,7 +4,7 @@ const ContactCard = ({ contact, categoryName }) => {
   const [copySuccess, setCopySuccess] = useState(false);
   const [copyAnimation, setCopyAnimation] = useState(false);
   
-  const { firstName, lastName, phone } = contact;
+  const { firstName, lastName, phone, role } = contact;
   
   // Formatuojame telefono numerį, kad būtų gražesnis
   const formattedPhone = phone.replace(/^(\+370)/, '+370 ');
@@ -56,19 +56,24 @@ const ContactCard = ({ contact, categoryName }) => {
   };
   
   // For debugging: remove this in production
-  console.log('Rendering ContactCard with categoryName:', categoryName);
+  console.log('Rendering ContactCard with categoryName:', categoryName, 'role:', role);
   
   return (
     <div className="card hover:shadow-medium transition-shadow">
       <div className="flex justify-between items-start mb-2">
         <div>
-          <div className="flex items-center">
+          <div className="flex items-center flex-wrap">
             <h3 className="font-semibold text-lg text-harbor">
               {firstName} {lastName}
             </h3>
             {categoryName && (
               <span className={`ml-2 px-2 py-0.5 text-xs rounded-full ${getGroupColor(categoryName)}`}>
                 {getGroupLabel(categoryName)}
+              </span>
+            )}
+            {role && (
+              <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-indigo-100 text-indigo-800">
+                {role}
               </span>
             )}
           </div>
