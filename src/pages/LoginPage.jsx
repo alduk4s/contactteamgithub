@@ -32,14 +32,13 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-skyblue to-white p-4">
       <div className="container-narrow animate-fade-in">
-        <div className="text-center mb-8">
+        <div className="text-center mb-12">
           <img 
             src="/ContactTeam.png" 
             alt="ContactTeam logotipas" 
-            className="w-16 h-16 mx-auto mb-4"
+            className="w-32 h-32 mx-auto mb-4"
           />
-          <h1 className="text-3xl font-bold text-harbor mb-2">ContactTeam</h1>
-          <p className="text-marine">Prisijunk prie savo bendruomenės</p>
+          <h1 className="text-4xl font-bold text-harbor">ContactTeam</h1>
         </div>
         
         <div className="bg-white rounded-xl shadow-medium p-6 md:p-8">
