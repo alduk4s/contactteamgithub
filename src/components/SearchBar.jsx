@@ -53,7 +53,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
         <input
           type="search"
           className="block w-full p-3 pl-10 pr-12 rounded-lg bg-white border border-gray-200 focus:ring-2 focus:ring-teal focus:border-transparent"
-          placeholder="Ieškoti pagal vardą arba telefono numerį..."
+          placeholder="Ieškoti"
           value={localQuery}
           onChange={handleChange}
         />
