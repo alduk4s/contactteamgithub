@@ -35,6 +35,9 @@ const ContactListPage = () => {
     
     const lowercaseQuery = query.toLowerCase();
     
+    // Debug: įrašykime, kokius kontaktus apdorojame
+    console.log('Filtering contacts with tab:', tab);
+    
     // Filtruojame kategorijas ir jų kontaktus
     const filtered = comm.categories
       .map(category => {
@@ -72,6 +75,7 @@ const ContactListPage = () => {
       })
       .filter(category => category.contacts.length > 0);
     
+    console.log('Filtered categories:', filtered.map(cat => cat.name));
     setFilteredCategories(filtered);
   };
   
@@ -231,6 +235,7 @@ const ContactListPage = () => {
             filteredCategories.map((category) => (
               <div key={category.id} className="animate-fade-in">
                 <CategoryLabel name={category.name} />
+                {console.log('Rendering category:', category.name, 'with', category.contacts.length, 'contacts')}
                 <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {category.contacts.map((contact) => (
                     <ContactCard 

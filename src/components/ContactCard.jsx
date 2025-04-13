@@ -55,6 +55,9 @@ const ContactCard = ({ contact, categoryName }) => {
     return 'bg-gray-100 text-gray-700';
   };
   
+  // For debugging: remove this in production
+  console.log('Rendering ContactCard with categoryName:', categoryName);
+  
   return (
     <div className="card hover:shadow-medium transition-shadow">
       <div className="flex justify-between items-start mb-2">
