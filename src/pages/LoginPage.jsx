@@ -34,7 +34,7 @@ const LoginPage = () => {
       <div className="container-narrow animate-fade-in">
         <div className="text-center mb-8">
           <img 
-            src="/assets/ContactTeam.png" 
+            src="/ContactTeam.png" 
             alt="ContactTeam logotipas" 
             className="w-16 h-16 mx-auto mb-4"
           />

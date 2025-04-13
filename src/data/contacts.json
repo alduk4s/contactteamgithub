@@ -4,7 +4,7 @@
       "id": "vka",
       "name": "Vyrų Kalvės Akademija",
       "loginCode": "vka123",
-      "logoPath": "/assets/vka.png",
+      "logoPath": "/vka.png",
       "categories": [
         {
           "id": "mentoriai",
@@ -174,7 +174,7 @@
       "id": "umma",
       "name": "Umma",
       "loginCode": "umma123",
-      "logoPath": "/assets/umma.png",
+      "logoPath": "/umma.png",
       "categories": [
         {
           "id": "mentoriai",
