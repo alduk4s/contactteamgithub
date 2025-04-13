@@ -43,8 +43,8 @@
           ]
         },
         {
-          "id": "nariai",
-          "name": "Nariai",
+          "id": "elniai",
+          "name": "Elnių grupė",
           "contacts": [
             {
               "id": "2",
@@ -167,6 +167,21 @@
               "phone": "+37061603220"
             }
           ]
+        },
+        {
+          "id": "apuokai",
+          "name": "Apuokų grupė",
+          "contacts": []
+        },
+        {
+          "id": "zirgai",
+          "name": "Žirgų grupė",
+          "contacts": []
+        },
+        {
+          "id": "lokiai", 
+          "name": "Lokių grupė",
+          "contacts": []
         }
       ]
     },
