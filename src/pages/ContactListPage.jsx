@@ -233,7 +233,11 @@ const ContactListPage = () => {
                 <CategoryLabel name={category.name} />
                 <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {category.contacts.map((contact) => (
-                    <ContactCard key={contact.id} contact={contact} />
+                    <ContactCard 
+                      key={contact.id} 
+                      contact={contact} 
+                      categoryName={category.name}
+                    />
                   ))}
                 </div>
               </div>

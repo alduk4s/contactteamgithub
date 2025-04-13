@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const ContactCard = ({ contact }) => {
+const ContactCard = ({ contact, categoryName }) => {
   const [copySuccess, setCopySuccess] = useState(false);
   const [copyAnimation, setCopyAnimation] = useState(false);
   
@@ -35,13 +35,40 @@ const ContactCard = ({ contact }) => {
     window.location.href = `tel:${phone}`;
   };
   
+  // Pakeičiame grupės pavadinimą į pavadinimą be žodžio "grupė"
+  const getGroupLabel = (name) => {
+    if (!name) return '';
+    return name.replace(' grupė', '');
+  };
+  
+  // Grąžiname skirtingą spalvą pagal grupės pavadinimą
+  const getGroupColor = (name) => {
+    if (!name) return 'bg-gray-100 text-gray-700';
+    
+    if (name.includes('Elnių')) return 'bg-amber-100 text-amber-800';
+    if (name.includes('Apuokų')) return 'bg-green-100 text-green-800';
+    if (name.includes('Žirgų')) return 'bg-blue-100 text-blue-800';
+    if (name.includes('Lokių')) return 'bg-purple-100 text-purple-800';
+    if (name.includes('Mentoriai')) return 'bg-red-100 text-red-800';
+    if (name.includes('Vadovai')) return 'bg-indigo-100 text-indigo-800';
+    
+    return 'bg-gray-100 text-gray-700';
+  };
+  
   return (
     <div className="card hover:shadow-medium transition-shadow">
       <div className="flex justify-between items-start mb-2">
         <div>
-          <h3 className="font-semibold text-lg text-harbor">
-            {firstName} {lastName}
-          </h3>
+          <div className="flex items-center">
+            <h3 className="font-semibold text-lg text-harbor">
+              {firstName} {lastName}
+            </h3>
+            {categoryName && (
+              <span className={`ml-2 px-2 py-0.5 text-xs rounded-full ${getGroupColor(categoryName)}`}>
+                {getGroupLabel(categoryName)}
+              </span>
+            )}
+          </div>
           <p className="text-gray-600 mt-1">{formattedPhone}</p>
         </div>
       </div>
