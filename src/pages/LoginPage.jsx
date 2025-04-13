@@ -32,27 +32,29 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-skyblue to-white p-4">
       <div className="container-narrow animate-fade-in">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <img 
             src="/ContactTeam.png" 
             alt="ContactTeam logotipas" 
-            className="w-48 h-48 mx-auto mb-8"
+            className="w-48 h-48 mx-auto"
           />
         </div>
         
-        <div className="bg-white rounded-xl shadow-medium p-6 md:p-8">
-          <h2 className="text-xl font-semibold text-harbor mb-6">Prisijunk prie savo bendruomenės</h2>
+        <div className="bg-white rounded-xl shadow-medium p-6 md:p-8 max-w-md mx-auto">
+          <h2 className="text-xl font-semibold text-harbor text-center mb-8">Įveskite bendruomenės kodą</h2>
           
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label htmlFor="loginCode" className="block text-sm font-medium text-gray-700 mb-1">
-                Prisijungimo kodas
-              </label>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+                </svg>
+              </div>
               <input
                 id="loginCode"
                 type="text"
-                className="input-field"
-                placeholder="Įveskite prisijungimo kodą"
+                className="input-field pl-10"
+                placeholder="Prisijungimo kodas"
                 value={loginCode}
                 onChange={(e) => setLoginCode(e.target.value)}
                 required
@@ -65,7 +67,7 @@ const LoginPage = () => {
             
             <button
               type="submit"
-              className="btn-primary w-full py-3 flex items-center justify-center"
+              className="btn-primary w-full py-4 flex items-center justify-center text-base font-medium rounded-lg bg-teal hover:bg-marine"
               disabled={isLoading}
             >
               {isLoading ? (
