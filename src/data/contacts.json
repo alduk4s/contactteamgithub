@@ -47,6 +47,24 @@
           "name": "Elnių grupė",
           "contacts": [
             {
+              "id": "v1e",
+              "firstName": "Džiugas",
+              "lastName": "",
+              "phone": "+37061352885"
+            },
+            {
+              "id": "v2e",
+              "firstName": "Leonardas",
+              "lastName": "",
+              "phone": "+37069947794"
+            },
+            {
+              "id": "v3e",
+              "firstName": "Svajūnas",
+              "lastName": "",
+              "phone": "+37067778995"
+            },
+            {
               "id": "2",
               "firstName": "Kirilas",
               "lastName": "",
