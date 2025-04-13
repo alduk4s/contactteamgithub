@@ -100,6 +100,47 @@ const ContactListPage = () => {
     );
   }
   
+  // VKA bendruomenės specilinių grupių navigacija
+  const renderVkaGroups = () => {
+    if (community.id !== 'vka') return null;
+    
+    const groupIds = ['elniai', 'apuokai', 'zirgai', 'lokiai'];
+    
+    return (
+      <div className="mb-6 bg-white p-4 rounded-lg shadow-sm">
+        <h3 className="text-harbor font-medium mb-3">Grupės</h3>
+        <div className="flex flex-wrap gap-2">
+          <button
+            className={`px-3 py-1.5 rounded-full text-sm whitespace-nowrap ${
+              !groupIds.includes(activeTab)
+                ? 'bg-teal text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+            onClick={() => handleTabChange('all')}
+          >
+            Visos grupės
+          </button>
+          
+          {community.categories
+            .filter(category => groupIds.includes(category.id))
+            .map((group) => (
+              <button
+                key={group.id}
+                className={`px-3 py-1.5 rounded-full text-sm whitespace-nowrap ${
+                  activeTab === group.id
+                    ? 'bg-teal text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+                onClick={() => handleTabChange(group.id)}
+              >
+                {group.name}
+              </button>
+            ))}
+        </div>
+      </div>
+    );
+  };
+  
   return (
     <div className="min-h-screen bg-beige">
       <header className="bg-white shadow-sm py-4">
@@ -151,6 +192,9 @@ const ContactListPage = () => {
           </button>
         </div>
         
+        {/* VKA specifinis grupių navigacijos komponentas */}
+        {renderVkaGroups()}
+        
         <div className="mb-6 border-b border-gray-200">
           <div className="flex space-x-4 overflow-x-auto pb-1">
             <button
@@ -164,19 +208,21 @@ const ContactListPage = () => {
               Visi
             </button>
             
-            {community.categories.map((category) => (
-              <button
-                key={category.id}
-                className={`pb-2 px-1 whitespace-nowrap ${
-                  activeTab === category.id
-                    ? 'text-teal border-b-2 border-teal font-medium'
-                    : 'text-gray-500 hover:text-gray-700'
-                }`}
-                onClick={() => handleTabChange(category.id)}
-              >
-                {category.name}
-              </button>
-            ))}
+            {community.categories
+              .filter(category => !['elniai', 'apuokai', 'zirgai', 'lokiai'].includes(category.id) || community.id !== 'vka')
+              .map((category) => (
+                <button
+                  key={category.id}
+                  className={`pb-2 px-1 whitespace-nowrap ${
+                    activeTab === category.id
+                      ? 'text-teal border-b-2 border-teal font-medium'
+                      : 'text-gray-500 hover:text-gray-700'
+                  }`}
+                  onClick={() => handleTabChange(category.id)}
+                >
+                  {category.name}
+                </button>
+              ))}
           </div>
         </div>
         
