@@ -56,8 +56,19 @@ const ContactListPage = () => {
           contact.phone.includes(lowercaseQuery)
         );
         
-        // Rūšiuojame kontaktus pagal abėcėlę
+        // Pirma rūšiuojame pagal rolę - vadovai eina pirma
         filteredContacts = filteredContacts.sort((a, b) => {
+          // Jei abu turi role arba abu neturi, rūšiuojame pagal abėcėlę
+          const aIsLeader = a.role === "Vadovas";
+          const bIsLeader = b.role === "Vadovas";
+          
+          if (aIsLeader && !bIsLeader) {
+            return -1; // a eina prieš b
+          } else if (!aIsLeader && bIsLeader) {
+            return 1; // b eina prieš a
+          }
+          
+          // Jei abu yra vadovai arba abu nėra vadovai, rūšiuojame pagal abėcėlę
           const nameA = `${a.firstName} ${a.lastName}`.toLowerCase();
           const nameB = `${b.firstName} ${b.lastName}`.toLowerCase();
           
@@ -236,15 +247,44 @@ const ContactListPage = () => {
               <div key={category.id} className="animate-fade-in">
                 <CategoryLabel name={category.name} />
                 {console.log('Rendering category:', category.name, 'with', category.contacts.length, 'contacts')}
-                <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {category.contacts.map((contact) => (
-                    <ContactCard 
-                      key={contact.id} 
-                      contact={contact} 
-                      categoryName={category.name}
-                    />
-                  ))}
-                </div>
+                
+                {/* Grupuojame kontaktus pagal rolę - pirmiau rodome vadovus */}
+                {category.contacts.some(c => c.role === "Vadovas") && (
+                  <div className="mb-4">
+                    <h4 className="text-sm font-medium text-gray-500 mb-2">Grupės vadovai</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {category.contacts
+                        .filter(contact => contact.role === "Vadovas")
+                        .map((contact) => (
+                          <ContactCard 
+                            key={contact.id} 
+                            contact={contact} 
+                            categoryName={category.name}
+                          />
+                        ))}
+                    </div>
+                  </div>
+                )}
+                
+                {/* Tada rodome likusius narius */}
+                {category.contacts.some(c => c.role !== "Vadovas") && (
+                  <div>
+                    {category.contacts.some(c => c.role === "Vadovas") && (
+                      <h4 className="text-sm font-medium text-gray-500 mb-2">Nariai</h4>
+                    )}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {category.contacts
+                        .filter(contact => contact.role !== "Vadovas")
+                        .map((contact) => (
+                          <ContactCard 
+                            key={contact.id} 
+                            contact={contact} 
+                            categoryName={category.name}
+                          />
+                        ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ))
           ) : (
