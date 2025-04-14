@@ -7,18 +7,6 @@
       "logoPath": "/vka.png",
       "categories": [
         {
-          "id": "mentoriai",
-          "name": "Mentoriai",
-          "contacts": [
-            {
-              "id": "1",
-              "firstName": "Jonas",
-              "lastName": "Jonaitis",
-              "phone": "+37060000000"
-            }
-          ]
-        },
-        {
           "id": "vadovai",
           "name": "Vadovai",
           "contacts": [
@@ -212,18 +200,6 @@
       "loginCode": "umma123",
       "logoPath": "/umma.png",
       "categories": [
-        {
-          "id": "mentoriai",
-          "name": "Mentoriai",
-          "contacts": [
-            {
-              "id": "u1",
-              "firstName": "Petras",
-              "lastName": "Petrauskas",
-              "phone": "+37061111111"
-            }
-          ]
-        },
         {
           "id": "nariai",
           "name": "Nariai",

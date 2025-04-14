@@ -63,8 +63,8 @@ const ContactCard = ({ contact, categoryName }) => {
     if (name.includes('Apuokų')) return 'bg-green-100 text-green-800';
     if (name.includes('Žirgų')) return 'bg-blue-100 text-blue-800';
     if (name.includes('Lokių')) return 'bg-purple-100 text-purple-800';
-    if (name.includes('Mentoriai')) return 'bg-red-100 text-red-800';
     if (name.includes('Vadovai')) return 'bg-indigo-100 text-indigo-800';
+    if (name.includes('Nariai')) return 'bg-blue-100 text-blue-800';
     
     return 'bg-gray-100 text-gray-700';
   };
