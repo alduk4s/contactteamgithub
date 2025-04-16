@@ -20,7 +20,7 @@ const ContactCard = ({ contact, categoryName }) => {
     
     // Pridedame rolės žymenį, jei yra
     if (role) {
-      tags.push({ label: role, color: 'bg-indigo-100 text-indigo-800' });
+      tags.push({ label: role, color: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200' });
     }
     
     setAllTags(tags);
@@ -57,16 +57,16 @@ const ContactCard = ({ contact, categoryName }) => {
   
   // Grąžiname skirtingą spalvą pagal grupės pavadinimą
   const getGroupColor = (name) => {
-    if (!name) return 'bg-gray-100 text-gray-700';
+    if (!name) return 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300';
     
-    if (name.includes('Elnių')) return 'bg-amber-100 text-amber-800';
-    if (name.includes('Apuokų')) return 'bg-green-100 text-green-800';
-    if (name.includes('Žirgų')) return 'bg-blue-100 text-blue-800';
-    if (name.includes('Lokių')) return 'bg-purple-100 text-purple-800';
-    if (name.includes('Vadovai')) return 'bg-indigo-100 text-indigo-800';
-    if (name.includes('Nariai')) return 'bg-blue-100 text-blue-800';
+    if (name.includes('Elnių')) return 'bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200';
+    if (name.includes('Apuokų')) return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
+    if (name.includes('Žirgų')) return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
+    if (name.includes('Lokių')) return 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200';
+    if (name.includes('Vadovai')) return 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200';
+    if (name.includes('Nariai')) return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
     
-    return 'bg-gray-100 text-gray-700';
+    return 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300';
   };
   
   // For debugging
@@ -77,7 +77,7 @@ const ContactCard = ({ contact, categoryName }) => {
       <div className="flex justify-between items-start mb-2">
         <div>
           <div className="flex items-center flex-wrap">
-            <h3 className="font-semibold text-lg text-harbor">
+            <h3 className="font-semibold text-lg text-harbor dark:text-skyblue">
               {firstName} {lastName}
             </h3>
             
@@ -90,7 +90,7 @@ const ContactCard = ({ contact, categoryName }) => {
               </span>
             ))}
           </div>
-          <p className="text-gray-600 mt-1">{formattedPhone}</p>
+          <p className="text-gray-600 dark:text-gray-400 mt-1">{formattedPhone}</p>
         </div>
       </div>
       
@@ -98,7 +98,7 @@ const ContactCard = ({ contact, categoryName }) => {
         <button
           onClick={copyToClipboard}
           className={`flex-1 btn-secondary text-sm flex items-center justify-center ${
-            copyAnimation ? 'bg-teal text-white' : ''
+            copyAnimation ? 'bg-teal dark:bg-marine text-white' : ''
           }`}
           aria-label="Kopijuoti telefono numerį"
         >

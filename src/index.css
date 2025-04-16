@@ -11,6 +11,11 @@
     @apply antialiased bg-beige min-h-screen;
   }
 
+  /* Dark Mode stiliai */
+  .dark body {
+    @apply bg-depth text-white;
+  }
+
   * {
     @apply transition-colors duration-200;
   }
@@ -27,14 +32,23 @@
   
   .btn-secondary {
     @apply btn bg-white hover:bg-gray-100 text-gray-800 border border-gray-300;
+    .dark & {
+      @apply bg-gray-700 hover:bg-gray-600 text-white border-gray-600;
+    }
   }
   
   .input-field {
     @apply w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent;
+    .dark & {
+      @apply bg-gray-800 border-gray-700 text-white focus:ring-teal;
+    }
   }
 
   .card {
     @apply bg-white rounded-xl shadow-soft p-5 animate-fade-in;
+    .dark & {
+      @apply bg-gray-800 shadow-none;
+    }
   }
 
   .container-narrow {
