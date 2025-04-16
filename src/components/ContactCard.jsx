@@ -72,6 +72,7 @@ const ContactCard = ({ contact, categoryName }) => {
   
   // For debugging
   console.log('Kontaktas:', firstName, 'Kategorija:', categoryName, 'Rolė:', role);
+  console.log("SVG spalva:", document.querySelector('.inset-y-0.left-0 svg').className);
   
   return (
     <motion.div
@@ -122,7 +123,8 @@ const ContactCard = ({ contact, categoryName }) => {
           aria-label="Kopijuoti telefono numerį"
         >
           <svg 
-            className="w-4 h-4 mr-2" 
+            className="w-5 h-5" 
+            style={{color: '#0ea5e9'}} 
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
@@ -153,7 +155,8 @@ const ContactCard = ({ contact, categoryName }) => {
           aria-label="Skambinti kontaktui"
         >
           <svg 
-            className="w-4 h-4 mr-2" 
+            className="w-5 h-5" 
+            style={{color: '#0ea5e9'}} 
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
