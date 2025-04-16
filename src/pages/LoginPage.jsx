@@ -6,6 +6,8 @@ const LoginPage = () => {
   const [loginCode, setLoginCode] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
+  const [showAboutModal, setShowAboutModal] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -29,6 +31,16 @@ const LoginPage = () => {
     }, 800);
   };
 
+  const toggleContactModal = () => {
+    setShowContactModal(!showContactModal);
+    if (showAboutModal) setShowAboutModal(false);
+  };
+
+  const toggleAboutModal = () => {
+    setShowAboutModal(!showAboutModal);
+    if (showContactModal) setShowContactModal(false);
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-skyblue to-white p-4">
       <div className="container-narrow animate-fade-in flex flex-col items-center w-full">
@@ -38,12 +50,6 @@ const LoginPage = () => {
             alt="ContactTeam logotipas" 
             className="w-80 h-80 mx-auto"
           />
-        </div>
-        
-        <div className="w-full flex justify-center mb-6">
-          <Link to="/about" className="text-teal hover:text-marine">
-            Apie mus
-          </Link>
         </div>
         
         <div className="bg-white rounded-xl shadow-medium p-6 md:p-8 max-w-md w-full">
@@ -94,49 +100,166 @@ const LoginPage = () => {
         <div className="text-center mt-8 text-sm text-gray-500">
           <p>Neturite prisijungimo kodo? Susisiekite su bendruomenės administracija.</p>
         </div>
-        
-        {/* ContactTeam Support kontaktai */}
-        <div className="text-center mt-6 text-xs text-gray-400 flex flex-col items-center">
-          <div className="w-16 h-px bg-gray-200 my-4"></div>
-          <p className="text-gray-500 font-medium mb-2">ContactTeam</p>
-          
-          <div className="flex items-center justify-center mt-1">
-            <svg className="w-4 h-4 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            <a href="mailto:pagalba.contactteam@gmail.com" className="text-teal hover:underline">
-              pagalba.contactteam@gmail.com
-            </a>
-          </div>
-          
-          <div className="flex items-center justify-center mt-1">
-            <svg className="w-4 h-4 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+        {/* Mygtukai apačioje */}
+        <div className="mt-16 flex justify-center space-x-6 w-full">
+          <button 
+            onClick={toggleContactModal}
+            className="px-6 py-4 bg-teal text-white rounded-lg shadow-md hover:bg-marine transition-colors flex items-center justify-center"
+          >
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
-            <a href="tel:+37061658471" className="text-teal hover:underline">
-              +370 616 58 471
-            </a>
-          </div>
+            Kontaktai
+          </button>
           
-          <div className="flex items-center justify-center mt-1">
-            <svg className="w-4 h-4 text-gray-400 mr-2" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+          <button 
+            onClick={toggleAboutModal}
+            className="px-6 py-4 bg-teal text-white rounded-lg shadow-md hover:bg-marine transition-colors flex items-center justify-center"
+          >
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <a href="https://www.facebook.com/profile.php?id=61575196801133&locale=lt_LT" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">
-              ContactTeam
-            </a>
-          </div>
-
-          <div className="flex items-center justify-center mt-1">
-            <svg className="w-4 h-4 text-gray-400 mr-2" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-            </svg>
-            <a href="https://www.instagram.com/contactteam.lt/" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">
-              contactteam.lt
-            </a>
-          </div>
+            Apie mus
+          </button>
         </div>
       </div>
+
+      {/* Modalinis langas kontaktams */}
+      {showContactModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl shadow-xl max-w-md w-full p-6 md:p-8 animate-fade-in">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-semibold text-harbor">Susisiekite su mumis</h2>
+              <button 
+                onClick={toggleContactModal}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-lg font-medium text-harbor mb-3">Telefonu</h3>
+                <div className="flex items-center">
+                  <svg className="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <div>
+                    <p className="text-gray-600">Pirm - Penkt, nuo 9 ryto iki 17 vakaro</p>
+                    <a href="tel:+37061658471" className="text-teal hover:underline font-medium">
+                      +370 616 58 471
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-lg font-medium text-harbor mb-3">El. paštu</h3>
+                <div className="flex items-center">
+                  <svg className="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <div>
+                    <p className="text-gray-600">Mūsų komanda el. laiškus atsako per 48 val.</p>
+                    <a href="mailto:pagalba.contactteam@gmail.com" className="text-teal hover:underline font-medium">
+                      pagalba.contactteam@gmail.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-lg font-medium text-harbor mb-3">Socialiniuose tinkluose</h3>
+                <div className="flex space-x-4">
+                  <a 
+                    href="https://www.facebook.com/profile.php?id=61575196801133&locale=lt_LT" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-center text-teal hover:underline"
+                  >
+                    <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+                    </svg>
+                    Facebook
+                  </a>
+                  
+                  <a 
+                    href="https://www.instagram.com/contactteam.lt/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-center text-teal hover:underline"
+                  >
+                    <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                    </svg>
+                    Instagram
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modalinis langas apie mus */}
+      {showAboutModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl shadow-xl max-w-lg w-full p-6 md:p-8 animate-fade-in overflow-y-auto max-h-[90vh]">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-semibold text-harbor">Apie mus</h2>
+              <button 
+                onClick={toggleAboutModal}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            <div className="space-y-6 text-gray-700">
+              <p>
+                ContactTeam – tai naujoviška kontaktų valdymo platforma, sukurta specialiai bendruomenėms, organizacijoms ir komandoms. 
+                Mūsų misija yra padėti žmonėms lengvai ir saugiai dalintis kontaktiniais duomenimis, taupant laiką ir išvengiant 
+                pasenusios informacijos.
+              </p>
+              
+              <p>
+                Mūsų komanda, sudaryta iš patyruse IT ekspertų ir dizainerių, sukūrė intuityvią, paprastą naudoti ir modernią 
+                kontaktų valdymo sistemą. ContactTeam leidžia bendruomenėms organizuoti kontaktus pagal grupes, lengvai ieškoti 
+                reikalingų žmonių ir visuomet turėti naujausius kontaktinius duomenis.
+              </p>
+              
+              <div className="mt-6">
+                <h3 className="text-xl font-medium text-harbor mb-4">Kodėl verta naudoti ContactTeam?</h3>
+                
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>Paprasta ir intuityvi vartotojo sąsaja</li>
+                  <li>Patogus kontaktų grupavimas</li>
+                  <li>Greita paieška ir filtravimas</li>
+                  <li>Saugus ir patikimas kontaktų dalinimasis</li>
+                  <li>Lengvas pasiekiamumas tiek kompiuteriu, tiek mobiliaisiais įrenginiais</li>
+                  <li>Centralizuotas kontaktų valdymas bendruomenei</li>
+                </ul>
+              </div>
+              
+              <div className="mt-6">
+                <h3 className="text-xl font-medium text-harbor mb-4">Mūsų istorija</h3>
+                
+                <p>
+                  ContactTeam projektas gimė iš praktinio poreikio, kai bendruomenės nariai susidūrė su iššūkiais valdant 
+                  ir dalinantis kontaktiniais duomenimis. Pradėję kaip nedidelė iniciatyva 2023 metais, šiandien esame tapę 
+                  patikimu įrankiu dešimtims bendruomenių visoje Lietuvoje.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

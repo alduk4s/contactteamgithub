@@ -1,14 +1,12 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import ContactListPage from './pages/ContactListPage';
-import AboutUsPage from './pages/AboutUsPage';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/community/:communityId" element={<ContactListPage />} />
-      <Route path="/about" element={<AboutUsPage />} />
       <Route path="*" element={<Navigate replace to="/" />} />
     </Routes>
   );
