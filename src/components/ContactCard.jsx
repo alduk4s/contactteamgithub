@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const ContactCard = ({ contact, categoryName }) => {
   const [copySuccess, setCopySuccess] = useState(false);
@@ -73,7 +74,20 @@ const ContactCard = ({ contact, categoryName }) => {
   console.log('Kontaktas:', firstName, 'Kategorija:', categoryName, 'Rolė:', role);
   
   return (
-    <div className="card hover:shadow-medium transition-shadow">
+    <motion.div
+      className="card hover:shadow-medium transition-all"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ 
+        duration: 0.3,
+        type: "spring",
+        stiffness: 100
+      }}
+      whileHover={{ 
+        y: -5,
+        transition: { duration: 0.2 }
+      }}
+    >
       <div className="flex justify-between items-start mb-2">
         <div>
           <div className="flex items-center flex-wrap">
@@ -82,12 +96,15 @@ const ContactCard = ({ contact, categoryName }) => {
             </h3>
             
             {allTags.map((tag, index) => (
-              <span 
+              <motion.span 
                 key={index} 
                 className={`ml-2 px-2 py-0.5 text-xs rounded-full ${tag.color}`}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1 * index }}
               >
                 {tag.label}
-              </span>
+              </motion.span>
             ))}
           </div>
           <p className="text-gray-600 dark:text-gray-400 mt-1">{formattedPhone}</p>
@@ -95,11 +112,13 @@ const ContactCard = ({ contact, categoryName }) => {
       </div>
       
       <div className="flex space-x-2 mt-4">
-        <button
+        <motion.button
           onClick={copyToClipboard}
           className={`flex-1 btn-secondary text-sm flex items-center justify-center ${
             copyAnimation ? 'bg-teal dark:bg-marine text-white' : ''
           }`}
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
           aria-label="Kopijuoti telefono numerį"
         >
           <svg 
@@ -115,12 +134,22 @@ const ContactCard = ({ contact, categoryName }) => {
               d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
             />
           </svg>
-          {copySuccess ? 'Nukopijuota!' : 'Kopijuoti'}
-        </button>
+          <motion.span
+            key={copySuccess ? "copied" : "copy"}
+            initial={{ opacity: 0, y: 3 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -3 }}
+            transition={{ duration: 0.2 }}
+          >
+            {copySuccess ? 'Nukopijuota!' : 'Kopijuoti'}
+          </motion.span>
+        </motion.button>
         
-        <button
+        <motion.button
           onClick={callContact}
           className="flex-1 btn-primary text-sm flex items-center justify-center"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
           aria-label="Skambinti kontaktui"
         >
           <svg 
@@ -137,9 +166,9 @@ const ContactCard = ({ contact, categoryName }) => {
             />
           </svg>
           Skambinti
-        </button>
+        </motion.button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

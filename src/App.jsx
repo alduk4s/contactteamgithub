@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext, useContext } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import LoginPage from './pages/LoginPage';
 import ContactListPage from './pages/ContactListPage';
 
@@ -57,14 +58,34 @@ const ThemeProvider = ({ children }) => {
   );
 };
 
+// Animuotas maršrutų komponentas
+function AnimatedRoutes() {
+  const location = useLocation();
+  
+  return (
+    <TransitionGroup component={null}>
+      <CSSTransition
+        key={location.key}
+        timeout={300}
+        classNames="page-transition"
+        unmountOnExit
+      >
+        <div className="page-wrapper">
+          <Routes location={location}>
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/community/:communityId" element={<ContactListPage />} />
+            <Route path="*" element={<Navigate replace to="/" />} />
+          </Routes>
+        </div>
+      </CSSTransition>
+    </TransitionGroup>
+  );
+}
+
 function App() {
   return (
     <ThemeProvider>
-      <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/community/:communityId" element={<ContactListPage />} />
-        <Route path="*" element={<Navigate replace to="/" />} />
-      </Routes>
+      <AnimatedRoutes />
     </ThemeProvider>
   );
 }

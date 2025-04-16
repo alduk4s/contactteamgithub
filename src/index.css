@@ -22,32 +22,66 @@
 }
 
 @layer components {
+  /* Puslapio perėjimo animacijos */
+  .page-transition-enter {
+    @apply opacity-0 translate-y-4;
+  }
+  
+  .page-transition-enter-active {
+    @apply opacity-100 translate-y-0 transition-all duration-300 ease-out;
+  }
+  
+  .page-transition-exit {
+    @apply opacity-100;
+  }
+  
+  .page-transition-exit-active {
+    @apply opacity-0 transition-opacity duration-200;
+  }
+
+  /* Modalinio lango animacijos */
+  .modal-enter {
+    @apply opacity-0 scale-95;
+  }
+  
+  .modal-enter-active {
+    @apply opacity-100 scale-100 transition-all duration-300 ease-out;
+  }
+  
+  .modal-exit {
+    @apply opacity-100 scale-100;
+  }
+  
+  .modal-exit-active {
+    @apply opacity-0 scale-95 transition-all duration-200;
+  }
+
   .btn {
-    @apply px-4 py-2 rounded-md font-medium transition-all duration-200 focus:outline-none;
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal dark:focus:ring-offset-depth;
   }
   
   .btn-primary {
-    @apply btn bg-teal hover:bg-marine text-white;
+    @apply btn bg-teal hover:bg-marine text-white shadow-sm hover:shadow transform hover:-translate-y-0.5 active:translate-y-0;
   }
   
   .btn-secondary {
-    @apply btn bg-white hover:bg-gray-100 text-gray-800 border border-gray-300;
+    @apply btn bg-white hover:bg-gray-100 text-gray-800 border border-gray-300 shadow-sm hover:shadow transform hover:-translate-y-0.5 active:translate-y-0;
     .dark & {
       @apply bg-gray-700 hover:bg-gray-600 text-white border-gray-600;
     }
   }
   
   .input-field {
-    @apply w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent;
+    @apply w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transform transition-transform focus:scale-[1.01];
     .dark & {
       @apply bg-gray-800 border-gray-700 text-white focus:ring-teal;
     }
   }
 
   .card {
-    @apply bg-white rounded-xl shadow-soft p-5 animate-fade-in;
+    @apply bg-white rounded-xl shadow-soft p-5 animate-fade-in hover:shadow-medium transition-all duration-300;
     .dark & {
-      @apply bg-gray-800 shadow-none;
+      @apply bg-gray-800 shadow-md hover:shadow-lg border border-gray-700;
     }
   }
 
@@ -60,6 +94,23 @@
   }
 
   .link {
-    @apply text-teal hover:text-marine underline;
+    @apply text-teal hover:text-marine underline transition-all duration-200 hover:underline decoration-2;
+  }
+
+  /* Patobulintos kategoijų etiketės */
+  .category-label {
+    @apply relative inline-block px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-teal to-skyblue text-white shadow-sm hover:shadow-md transition-shadow duration-300;
+    .dark & {
+      @apply from-marine to-teal;
+    }
+  }
+
+  /* Patobulintas temos perjungimas */
+  .theme-toggle {
+    @apply relative p-2 rounded-full shadow-md hover:shadow-lg text-gray-700 dark:text-gray-200 transform hover:scale-110 transition-all duration-300;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    .dark & {
+      background: linear-gradient(145deg, #333, #222);
+    }
   }
 } 
