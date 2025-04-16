@@ -313,36 +313,11 @@ const LoginPage = () => {
             exit={{ y: -20, opacity: 0 }}
           >
             {/* Viršutinė dalis su uždarymo mygtuku */}
-            <div className="relative">
-              {/* Hero sekcija */}
-              <div className="bg-gradient-to-r from-harbor to-teal dark:from-depth dark:to-marine h-40 w-full relative flex items-center justify-center overflow-hidden">
-                <motion.div 
-                  className="absolute inset-0 opacity-20"
-                  initial={{ scale: 1.2 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 1.5 }}
-                  style={{
-                    backgroundImage: "url('/ContactTeam.png')",
-                    backgroundSize: "contain",
-                    backgroundRepeat: "repeat",
-                    backgroundPosition: "center",
-                    filter: "blur(1px)"
-                  }}
-                />
-                <motion.h2 
-                  className="text-3xl md:text-4xl font-bold text-white relative z-10 text-center"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  Apie ContactTeam
-                </motion.h2>
-              </div>
-              
-              {/* Uždarymo mygtukas */}
+            <div className="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700">
+              <h2 className="text-2xl font-semibold text-harbor dark:text-skyblue">Apie mus</h2>
               <motion.button 
                 onClick={toggleAboutModal}
-                className="absolute top-4 right-4 bg-white/20 dark:bg-gray-800/20 text-white rounded-full p-2 backdrop-blur-sm"
+                className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -353,7 +328,7 @@ const LoginPage = () => {
             </div>
             
             {/* Turinys */}
-            <div className="p-6 md:p-8 overflow-y-auto max-h-[calc(90vh-10rem)]">
+            <div className="p-6 overflow-y-auto max-h-[calc(90vh-4rem)]">
               <div className="space-y-8 text-gray-700 dark:text-gray-300">
                 {/* Įvadinė dalis */}
                 <motion.div
@@ -361,33 +336,18 @@ const LoginPage = () => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <p className="text-lg leading-relaxed mb-6">
+                  <p className="text-lg leading-relaxed">
                     <span className="font-semibold text-teal dark:text-skyblue">ContactTeam</span> – tai įrankis, skirtas padėti organizacijoms lengvai saugoti, rasti ir dalintis vidiniais kontaktais.
                   </p>
                 </motion.div>
                 
-                {/* Mūsų istorija */}
+                {/* Istorija */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
                   className="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-6"
                 >
-                  <h3 className="text-xl font-semibold text-harbor dark:text-skyblue mb-4 flex items-center">
-                    <motion.svg 
-                      className="w-6 h-6 mr-2 text-teal dark:text-teal" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                      initial={{ rotate: -5 }}
-                      animate={{ rotate: 0 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </motion.svg>
-                    Mūsų istorija
-                  </h3>
-                  
                   <p className="mb-4">
                     Viskas prasidėjo nuo mūsų – dviejų jaunuolių, aktyvių didelėje bendruomenėje. Dažnai susidurdavome su paprasta, bet erzinančia problema – prireikus kieno nors kontakto, tekdavo klausinėti aplink, ieškoti, gaišti laiką.
                   </p>
@@ -403,90 +363,9 @@ const LoginPage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <h3 className="text-xl font-semibold text-harbor dark:text-skyblue mb-4 flex items-center">
-                    <motion.svg 
-                      className="w-6 h-6 mr-2 text-teal dark:text-teal" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                      initial={{ scale: 0.8 }}
-                      animate={{ scale: 1 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </motion.svg>
-                    Kaip tai veikia
-                  </h3>
-                  
-                  <p className="mb-4">
-                    ContactTeam leidžia greitai ir patogiai susirasti kolegų kontaktus, ypač kai prisijungi prie naujos organizacijos ar komandos. Nereikia klausinėti ar ieškoti – visi kontaktai vienoje vietoje, pasiekiami kiekvienam komandos nariui.
+                  <p className="mb-8">
+                    <span className="font-semibold text-teal dark:text-skyblue">ContactTeam</span> leidžia greitai ir patogiai susirasti kolegų kontaktus, ypač kai prisijungi prie naujos organizacijos ar komandos. Nereikia klausinėti ar ieškoti – visi kontaktai vienoje vietoje, pasiekiami kiekvienam komandos nariui.
                   </p>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
-                    <motion.div 
-                      className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm"
-                      whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <div className="flex items-center mb-3">
-                        <div className="bg-teal/10 dark:bg-teal/20 p-2 rounded-full">
-                          <svg className="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                          </svg>
-                        </div>
-                        <h4 className="text-md font-medium ml-3 text-harbor dark:text-skyblue">Sukeliame kontaktus</h4>
-                      </div>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Mes sutvarkysime jūsų kontaktus ir sukelsime į sistemą</p>
-                    </motion.div>
-                    
-                    <motion.div 
-                      className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm"
-                      whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <div className="flex items-center mb-3">
-                        <div className="bg-teal/10 dark:bg-teal/20 p-2 rounded-full">
-                          <svg className="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
-                          </svg>
-                        </div>
-                        <h4 className="text-md font-medium ml-3 text-harbor dark:text-skyblue">Sukuriame prisijungimus</h4>
-                      </div>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Administratoriaus ir narių prieigos pagal poreikį</p>
-                    </motion.div>
-                    
-                    <motion.div 
-                      className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm"
-                      whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <div className="flex items-center mb-3">
-                        <div className="bg-teal/10 dark:bg-teal/20 p-2 rounded-full">
-                          <svg className="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                          </svg>
-                        </div>
-                        <h4 className="text-md font-medium ml-3 text-harbor dark:text-skyblue">Padedame pereiti</h4>
-                      </div>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Užtikriname sklandų perėjimą į naują sistemą</p>
-                    </motion.div>
-                    
-                    <motion.div 
-                      className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm"
-                      whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <div className="flex items-center mb-3">
-                        <div className="bg-teal/10 dark:bg-teal/20 p-2 rounded-full">
-                          <svg className="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                          </svg>
-                        </div>
-                        <h4 className="text-md font-medium ml-3 text-harbor dark:text-skyblue">Nuolatinis palaikymas</h4>
-                      </div>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Esame šalia, kai reikia pagalbos ar pakeitimų</p>
-                    </motion.div>
-                  </div>
                 </motion.div>
                 
                 {/* Mūsų vizija ir vertybės */}
@@ -495,19 +374,9 @@ const LoginPage = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
-                    className="bg-gradient-to-br from-teal/10 to-skyblue/10 dark:from-teal/5 dark:to-marine/5 rounded-lg p-6"
+                    className="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-6"
                   >
-                    <h3 className="text-xl font-semibold text-harbor dark:text-skyblue mb-4 flex items-center">
-                      <motion.svg 
-                        className="w-6 h-6 mr-2 text-teal dark:text-teal" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
-                        animate={{ rotate: [0, 5, 0, -5, 0] }}
-                        transition={{ duration: 3, repeat: Infinity }}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                      </motion.svg>
+                    <h3 className="text-xl font-semibold text-harbor dark:text-skyblue mb-4">
                       Mūsų vizija
                     </h3>
                     
@@ -520,52 +389,18 @@ const LoginPage = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
-                    className="bg-gradient-to-br from-teal/10 to-skyblue/10 dark:from-teal/5 dark:to-marine/5 rounded-lg p-6"
+                    className="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-6"
                   >
-                    <h3 className="text-xl font-semibold text-harbor dark:text-skyblue mb-4 flex items-center">
-                      <motion.svg 
-                        className="w-6 h-6 mr-2 text-teal dark:text-teal" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
-                        animate={{ scale: [1, 1.1, 1] }}
-                        transition={{ duration: 3, repeat: Infinity }}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                      </motion.svg>
+                    <h3 className="text-xl font-semibold text-harbor dark:text-skyblue mb-4">
                       Mūsų vertybės
                     </h3>
                     
-                    <div className="flex flex-wrap gap-2">
-                      <motion.span 
-                        className="px-3 py-1.5 rounded-full text-sm bg-white dark:bg-gray-700 text-harbor dark:text-skyblue"
-                        whileHover={{ scale: 1.05, backgroundColor: "#72a3bf" }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        Paprastumas
-                      </motion.span>
-                      <motion.span 
-                        className="px-3 py-1.5 rounded-full text-sm bg-white dark:bg-gray-700 text-harbor dark:text-skyblue"
-                        whileHover={{ scale: 1.05, backgroundColor: "#72a3bf" }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        Aiškumas
-                      </motion.span>
-                      <motion.span 
-                        className="px-3 py-1.5 rounded-full text-sm bg-white dark:bg-gray-700 text-harbor dark:text-skyblue"
-                        whileHover={{ scale: 1.05, backgroundColor: "#72a3bf" }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        Efektyvumas
-                      </motion.span>
-                      <motion.span 
-                        className="px-3 py-1.5 rounded-full text-sm bg-white dark:bg-gray-700 text-harbor dark:text-skyblue"
-                        whileHover={{ scale: 1.05, backgroundColor: "#72a3bf" }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        Bendruomeniškumas
-                      </motion.span>
-                    </div>
+                    <ul className="list-disc pl-6 space-y-1">
+                      <li>Paprastumas</li>
+                      <li>Aiškumas</li>
+                      <li>Efektyvumas</li>
+                      <li>Bendruomeniškumas</li>
+                    </ul>
                   </motion.div>
                 </div>
                 
@@ -576,18 +411,7 @@ const LoginPage = () => {
                   transition={{ duration: 0.5, delay: 0.4 }}
                   className="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-6"
                 >
-                  <h3 className="text-xl font-semibold text-harbor dark:text-skyblue mb-4 flex items-center">
-                    <motion.svg 
-                      className="w-6 h-6 mr-2 text-teal dark:text-teal" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                      initial={{ y: 3 }}
-                      animate={{ y: 0 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </motion.svg>
+                  <h3 className="text-xl font-semibold text-harbor dark:text-skyblue mb-4">
                     Kas mes?
                   </h3>
                   
@@ -596,15 +420,33 @@ const LoginPage = () => {
                   </p>
                 </motion.div>
                 
+                {/* Kaip veikia ContactTeam */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  className="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-6"
+                >
+                  <h3 className="text-xl font-semibold text-harbor dark:text-skyblue mb-4">
+                    Kaip veikia ContactTeam?
+                  </h3>
+                  
+                  <p className="mb-3">Dirbame B2B formatu – susisiekus su mumis, mes:</p>
+                  <ul className="list-disc pl-6 mb-4 space-y-1">
+                    <li>Sukelsime jūsų kontaktus į sistemą</li>
+                    <li>Sukursime administratoriaus ir narių prisijungimus</li>
+                    <li>Padėsime sklandžiai pereiti į sistemą</li>
+                  </ul>
+                </motion.div>
+                
                 {/* CTA dalis */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
                   className="bg-gradient-to-r from-teal to-harbor dark:from-marine dark:to-navy text-white rounded-lg p-6 text-center"
                 >
-                  <h3 className="text-xl font-semibold mb-3">Palikite kontaktų chaosą mums</h3>
-                  <p className="mb-5">O patys susitelkite į tai, kas iš tiesų svarbu.</p>
+                  <p className="mb-5 text-lg">Palikite kontaktų chaosą mums – o patys susitelkite į tai, kas iš tiesų svarbu.</p>
                   
                   <motion.a 
                     href="mailto:pagalba.contactteam@gmail.com"
@@ -612,7 +454,7 @@ const LoginPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Parašykite mums
+                    Parašykite mums – ir pradėkime!
                   </motion.a>
                 </motion.div>
               </div>
