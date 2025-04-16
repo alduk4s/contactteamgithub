@@ -72,7 +72,6 @@ const ContactCard = ({ contact, categoryName }) => {
   
   // For debugging
   console.log('Kontaktas:', firstName, 'Kategorija:', categoryName, 'Rolė:', role);
-  console.log("SVG spalva:", document.querySelector('.inset-y-0.left-0 svg').className);
   
   return (
     <motion.div
