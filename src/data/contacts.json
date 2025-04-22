@@ -213,6 +213,98 @@
           ]
         }
       ]
+    },
+    {
+      "id": "jvk-kodas",
+      "name": "Jaunųjų Verslininkų Klubas (JVK) KODAS",
+      "loginCode": "jvk123",
+      "logoPath": "/jvk.png",
+      "categories": [
+        {
+          "id": "nariai",
+          "name": "Nariai",
+          "contacts": [
+            {
+              "id": "jvk1",
+              "firstName": "Rūnas",
+              "lastName": "Šablauskas",
+              "phone": "+37061350783"
+            },
+            {
+              "id": "jvk2",
+              "firstName": "Kasparas",
+              "lastName": "Jurkulnevičius",
+              "phone": "+37062029279"
+            },
+            {
+              "id": "jvk3",
+              "firstName": "Julijus",
+              "lastName": "Kaškonas",
+              "phone": "+37067992727"
+            },
+            {
+              "id": "jvk4",
+              "firstName": "Vilius",
+              "lastName": "Šipkauskas",
+              "phone": "+37060854867"
+            },
+            {
+              "id": "jvk5",
+              "firstName": "Kipras",
+              "lastName": "Silickas",
+              "phone": "+37068712314"
+            },
+            {
+              "id": "jvk6",
+              "firstName": "Dovydas",
+              "lastName": "Ivanauskas",
+              "phone": "+37069661094"
+            },
+            {
+              "id": "jvk7",
+              "firstName": "Augustas",
+              "lastName": "Labanauskas",
+              "phone": "+37061999991"
+            },
+            {
+              "id": "jvk8",
+              "firstName": "Gintaras",
+              "lastName": "Gudelis",
+              "phone": "+37061016133"
+            },
+            {
+              "id": "jvk9",
+              "firstName": "Nojus",
+              "lastName": "Šliužas",
+              "phone": "+37062688368"
+            },
+            {
+              "id": "jvk10",
+              "firstName": "Arijus",
+              "lastName": "Žalpys",
+              "phone": "+37067653166"
+            },
+            {
+              "id": "jvk11",
+              "firstName": "Martynas",
+              "lastName": "Grigoravičius",
+              "phone": "+37062263020"
+            },
+            {
+              "id": "jvk12",
+              "firstName": "Nojus Vakaris",
+              "lastName": "Samauskas",
+              "phone": "+37068745147"
+            },
+            {
+              "id": "jvk13",
+              "firstName": "Simonas",
+              "lastName": "Soraka",
+              "phone": "+37064516003"
+            }
+          ]
+        }
+      ]
     }
   ]
 } 
