@@ -216,7 +216,7 @@
     },
     {
       "id": "jvk-kodas",
-      "name": "Jaunųjų Verslininkų Klubas (JVK) KODAS",
+      "name": "Jaunųjų Verslininkų Klubas",
       "loginCode": "jvk123",
       "logoPath": "/jvk.png",
       "categories": [
