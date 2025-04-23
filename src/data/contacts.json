@@ -218,7 +218,7 @@
       "id": "jvk-kodas",
       "name": "Jaunųjų Verslininkų Klubas",
       "loginCode": "jvk123",
-      "logoPath": "/jvk.png",
+      "logoPath": "/assets/jvk.png",
       "categories": [
         {
           "id": "nariai",
@@ -319,7 +319,7 @@
               "id": "jvk14",
               "firstName": "Joris",
               "lastName": "Puodžiūnas",
-              "phone": "",
+              "phone": "+37066861783",
               "facebook": "https://www.facebook.com/joris.puodziunas"
             }
           ]
