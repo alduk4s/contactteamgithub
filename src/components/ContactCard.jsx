@@ -121,9 +121,9 @@ const ContactCard = ({ contact, categoryName }) => {
         </div>
       </div>
       
-      <div className={`flex ${facebook ? 'space-x-2' : 'space-x-2'} mt-4`}>
+      <div className="flex flex-col space-y-2 mt-4 md:flex-row md:space-y-0 md:space-x-2">
         {phone && (
-          <>
+          <div className="flex space-x-2 w-full">
             <motion.button
               onClick={copyToClipboard}
               className={`flex-1 btn-secondary text-sm flex items-center justify-center ${
@@ -134,7 +134,7 @@ const ContactCard = ({ contact, categoryName }) => {
               aria-label="Kopijuoti telefono numerį"
             >
               <svg 
-                className="w-5 h-5" 
+                className="w-5 h-5 mr-1" 
                 style={{color: '#0ea5e9'}} 
                 fill="none" 
                 stroke="currentColor" 
@@ -166,7 +166,7 @@ const ContactCard = ({ contact, categoryName }) => {
               aria-label="Skambinti kontaktui"
             >
               <svg 
-                className="w-5 h-5" 
+                className="w-5 h-5 mr-1" 
                 style={{color: '#0ea5e9'}} 
                 fill="none" 
                 stroke="currentColor" 
@@ -181,13 +181,13 @@ const ContactCard = ({ contact, categoryName }) => {
               </svg>
               Skambinti
             </motion.button>
-          </>
+          </div>
         )}
         
         {facebook && (
           <motion.button
             onClick={openFacebook}
-            className="flex-1 btn-facebook text-sm flex items-center justify-center"
+            className="w-full btn-facebook text-sm flex items-center justify-center"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             aria-label="Atidaryti Facebook profilį"

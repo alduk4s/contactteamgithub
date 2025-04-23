@@ -218,7 +218,7 @@
       "id": "jvk-kodas",
       "name": "Jaunųjų Verslininkų Klubas",
       "loginCode": "jvk123",
-      "logoPath": "/assets/jvk.png",
+      "logoPath": "/jvk.png",
       "categories": [
         {
           "id": "nariai",
