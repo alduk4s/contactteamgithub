@@ -209,10 +209,10 @@ const ContactListPage = () => {
             />
             <h1 className="text-xl font-semibold text-harbor dark:text-skyblue">{community.name}</h1>
           </motion.div>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-8">
             <motion.button
               onClick={toggleDarkMode}
-              className="theme-toggle"
+              className="theme-toggle ml-8"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label={darkMode ? "Įjungti šviesią temą" : "Įjungti tamsią temą"}

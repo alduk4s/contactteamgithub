@@ -114,7 +114,7 @@
 
   /* Patobulintas temos perjungimas */
   .theme-toggle {
-    @apply relative p-2 rounded-full shadow-md hover:shadow-lg text-gray-700 dark:text-gray-200 transform hover:scale-110 transition-all duration-300;
+    @apply relative p-3 rounded-full shadow-md hover:shadow-lg text-gray-700 dark:text-gray-200 transform hover:scale-110 transition-all duration-300 ml-5;
     background: linear-gradient(145deg, #ffffff, #e6e6e6);
     .dark & {
       background: linear-gradient(145deg, #333, #222);
