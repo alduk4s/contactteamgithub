@@ -203,7 +203,7 @@ const ContactListPage = () => {
             <motion.img 
               src={community.logoPath} 
               alt={`${community.name} logotipas`} 
-              className="h-8 mr-3 rounded bg-white dark:bg-white p-0.5"
+              className={`h-10 mr-3 ${community.id === 'jvk-kodas' ? 'rounded-none p-0 bg-transparent dark:bg-transparent' : 'rounded bg-white dark:bg-white p-0.5'}`}
               whileHover={{ rotate: 5, scale: 1.1 }}
               transition={{ duration: 0.2 }}
             />
