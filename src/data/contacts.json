@@ -274,13 +274,6 @@
               "facebook": "https://www.facebook.com/profile.php?id=61553039493784"
             },
             {
-              "id": "jvk8",
-              "firstName": "Gintaras",
-              "lastName": "Gudelis",
-              "phone": "+37061016133",
-              "facebook": "https://www.facebook.com/profile.php?id=61565547410621"
-            },
-            {
               "id": "jvk9",
               "firstName": "Nojus",
               "lastName": "Šliužas",
@@ -302,25 +295,11 @@
               "facebook": "https://www.facebook.com/profile.php?id=100077657786675"
             },
             {
-              "id": "jvk12",
-              "firstName": "Nojus Vakaris",
-              "lastName": "Samauskas",
-              "phone": "+37068745147",
-              "facebook": "https://www.facebook.com/nojus.samauskas"
-            },
-            {
               "id": "jvk13",
               "firstName": "Simonas",
               "lastName": "Soraka",
               "phone": "+37064516003",
               "facebook": "https://www.facebook.com/simonas.soraka"
-            },
-            {
-              "id": "jvk14",
-              "firstName": "Joris",
-              "lastName": "Puodžiūnas",
-              "phone": "+37066861783",
-              "facebook": "https://www.facebook.com/joris.puodziunas"
             }
           ]
         }
